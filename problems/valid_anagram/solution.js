@@ -6,26 +6,30 @@
 var isAnagram = function(s, t) {
 //     create an object and find frequency of each letter in str1, then loop through str2 and subtract each letter from str1 based on what str2 is
     
-    freq1 = {}
     
-    if(s.length !== t.length){
-        return false
+     if (s.length !== t.length) {
+        console.log(false);
+      return false;
     }
+         
+    let sHash = {}
     
-    for (let val of s)
+    for(let letter of s)
         {
-            freq1[val] = (freq1[val] || 0) + 1
+            sHash[letter] = (sHash[letter] || 0) + 1         
+            
         }
-    console.log(freq1)
     
-    for(let val of t)
+    for(let letter  of t)
         {
-            if(!(freq1[val]))
+            if(!(sHash[letter])) 
                 {
                     return false
                 }
-            
-            freq1[val] -= 1
+            else{
+                sHash[letter]-- 
+            }
         }
     return true
+   
 };
