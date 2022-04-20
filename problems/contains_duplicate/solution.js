@@ -12,13 +12,12 @@ var containsDuplicate = function(nums) {
    
    for(let i = 0; i < nums.length;i++){
        hash[nums[i]] = (hash[nums[i]] || 0) + 1
+       
+       if(hash[nums[i]] > 1){
+           return true
+       }
    }
-    
-    for(let i = 0; i < nums.length;i++){
-        if(hash[nums[i]] > 1){
-            return true
-        }
-        
-    }
     return false
+    
+  
 };
