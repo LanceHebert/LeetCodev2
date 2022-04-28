@@ -3,27 +3,67 @@
  * @return {boolean}
  */
 
-// Given a string, convert all uppercase to lwoer, get rid of any spaces or symbols. check if palindrome, return true or false.
+// given string s, return true if it can be read backwards and forwards
 
-// will probably have to loop through and create a clean string, checking each time if alphanumeric or not. Could do quick check by making a hash map and seeing if modulo 2 is 0 for each key.
+// first we need to strip out all "excess" characters that are non alphanumeric with reg ex.
 
-// set up left and right pointer, while loop left < right, check left vs right incrementing each time.
+// then we split the entire string into component parts and we can check if a start pointer === end pointer we increment and decrement them each by one until the pointers meet and exit out and return true 
 
 var isPalindrome = function(s) {
-    let reg = /[\W_]/g
-    let str=s.toLowerCase().replace(reg,"")
-    let left =0    
-    let arr = str.split("")
-    let right=arr.length - 1 
+    
+    let reg = /[\W_]/g 
+    let regS = s.toLowerCase().replace(reg,"")
+    
+    let left = 0
+    let right = regS.length - 1
     
     while(left < right){
-        if(arr[left]!==arr[right] )
-            {
-                return false
-            }
+        if(regS[left] !== regS[right]){
+            return false
+        }else{
         left++
-        right--        
+        right--
+        }
+        
     }
     return true
     
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let reg = /[\W_]/g
+//     let str=s.toLowerCase().replace(reg,"")
+//     let left =0    
+//     let arr = str.split("")
+//     let right=arr.length - 1 
+    
+//     while(left < right){
+//         if(arr[left]!==arr[right] )
+//             {
+//                 return false
+//             }
+//         left++
+//         right--        
+//     }
+//     return true
