@@ -4,87 +4,31 @@
  * @return {boolean}
  */
 
-// Two strings , s,t ,  return true if t is anagram of s . false otherwise
-// Create a hashmap of s, run a second for loop that decrements the amount s key has.
+// two strings, s and t. return true if t is anagram of s. false otherwise
+
+// create a hash with frequency counter for s for how many letters it has
+// iterate through t and see if it also exists in the S hash. if it does return true. If it doesnt return false
 
 
 var isAnagram = function(s, t) {
     
-    let hash = {}
-    
-    if(s.length !== t.length ){
+    if(s.length !== t.length){
         return false
     }
     
-    for(let i = 0; i< s.length;i++){
-        hash[s[i]] = hash[s[i]] + 1 || 1
-    }
+    let hashS = {}
     
-    for(let i = 0; i< s.length;i++){
-        if (!hash[t[i]]){
+    for(let i = 0 ; i < s.length; i++){
+        hashS[s[i]] = hashS[s[i]] + 1 || 1
+    }
+    console.log(hashS)
+    for(let letter of t){
+        if(!(hashS[letter])){
             return false
-        } 
-        hash[t[i]]--
+        }        
+        hashS[letter]--
     }
     return true
-
- 
+    
+    
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   if (s.length !== t.length) {
-//         console.log(false);
-//       return false;
-//     }
-         
-//     let sHash = {}
-    
-//     for(let letter of s)
-//         {
-//             sHash[letter] = (sHash[letter] || 0) + 1         
-            
-//         }
-    
-//     for(let letter  of t)
-//         {
-//             if(!(sHash[letter])) 
-//                 {
-//                     return false
-//                 }
-//             else{
-//                 sHash[letter]-- 
-//             }
-//         }
-//     return true
