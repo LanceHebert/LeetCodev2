@@ -3,37 +3,31 @@
  * @return {string[][]}
  */
 
-// set up a for loop that iterates through each word. 
-// take i and turn that into a hash map. use second pointer to create a second hash map and see if its anagram. 
-// If it is, create array and push it together.
-// if not increase right counter by one
+// array of strings strs. Group anagrams together. return an array of arrays 
+
+// first we need to split each string so we can break it apart into letter components
+
+//in the value for each key which is the pattern of letters set the string so that each key holds an array of strings that match 
+
+// iterate through the hash returning only the values into a big array to hold the smaller arrays
 
 var groupAnagrams = function(strs) {
     let hash = {}
-    let answer=[]
     
     
-    
-    for(let i = 0; i < strs.length ; i++){
+    for(let i =0;i<strs.length;i++){
+        let splitStrs = strs[i].split("")
+        splitStrs.sort()
         
-        let splitty = strs[i].split("")
         
-        splitty.sort()        
-       
         
-        if(hash[splitty]){
-            hash[splitty].push(strs[i]) 
+        if(!(splitStrs in hash)){
+           hash[splitStrs] = [strs[i]] 
         }
         else{
-            hash[splitty] = [strs[i]]
-        }
-               
+            hash[splitStrs].push(strs[i])
+        }               
     }
-   for(let val in hash)
-       {
-           console.log(hash[val])
-            answer.push(hash[val])
-       }
-    return answer
+    return Object.values(hash)
+    
 };
-
