@@ -3,25 +3,30 @@
  * @return {number}
  */
 
-// given array of price, pick single day to buy and then different day in future to sell. return maximum profit from this transaction
-// array = prices,prices[i] current day 
-// first day to buy , the last day to sell to maximize profit
+// given an array of prices
+// want to find maximum day to buy with biggest profit when you sell.
 
-// current value and then search for the sell day through the array
+// first we need to check if there is only decreasing numbers edgecase
+
 // 
 
+
 var maxProfit = function(prices) {
-  let profit = 0;
-  let entry = prices[0];
     
-  for(let i = 1 ; i < prices.length; i++ ){
-     if(entry > prices[i]){
+   let entry = prices[0]
+  let maxProf = 0
+  
+    
+    for(let i = 0;i < prices.length;i++){
+        if(entry > prices[i]){
          entry = prices[i]
-     } 
-     else{
-        profit = Math.max(profit, prices[i] - entry) 
-     } 
-  }  
-    return profit    
+        }
+        
+        maxProf = Math.max(maxProf,prices[i]-entry)
+    }
+    return maxProf
+    
+    
+    
+    
 };
-//     profit = 4, entry = 1
