@@ -3,15 +3,15 @@
  * @return {boolean}
  */
 
-// array nums, if a value appears twice return true
+// array nums
 
-// interate through the array and set each letter to a hash. Add a frequency counter for its value. 
-// if the value is greater than 1 return true, else false.
+// iterate through the nums array and create a hash map with the value being the frequency of the number from the array. 
+// if the nums value is > 2 return true for duplicate
 
 var containsDuplicate = function(nums) {
     let hash = {}
     
-    for(let i = 0; i<nums.length;i++){
+    for(let i=0; i<nums.length;i++){
         hash[nums[i]] = hash[nums[i]] + 1 || 1
         
         if(hash[nums[i]] > 1){
