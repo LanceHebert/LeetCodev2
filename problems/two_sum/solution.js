@@ -4,23 +4,23 @@
  * @return {number[]}
  */
 
-// array nums, with target. return indices of two numbers that add up to target.
+// array of nums and target integer, return indices of the two numbers that add up to target
 
-// Create a hash map with the value being the index.
-
-// I need to take target - iterated value to get difference. Then check if difference exists in the hash. Use that index plus the index that is the value from the hash and return it 
+// we are going to iterate through array and take a target minus the current value. As we iterate, we can build a hash of tested values from array. That way when we get to the compiment value the original is already in the hash. When creating the hash we will have the value be the index and the key be the value.
 
 
 var twoSum = function(nums, target) {
     let hash = {}
     
-    for(let i=0;i < nums.length;i++){
+    for(let i = 0; i < nums.length;i++){
         let diff = target - nums[i]
         
-        if(hash[diff] != null){
-            console.log(hash[diff])
-            return ([i,hash[diff]])
+        if(diff in hash){
+            return [i,hash[diff]]
+        }else{
+            hash[nums[i]] = i
         }
-        hash[nums[i]] = i
+        
     }
+    
 };
