@@ -4,10 +4,9 @@
  * @return {boolean}
  */
 
-// two strings, s and t. return true if t is anagram of s. false otherwise
+// two strings, s and t, if t anagram of s return true. Otherwise false
 
-// create a hash with frequency counter for s for how many letters it has
-// iterate through t and see if it also exists in the S hash. if it does return true. If it doesnt return false
+// iterate through s and create a hash, iterate through t and check if t values exist in hash of s. if they do decrement their value
 
 
 var isAnagram = function(s, t) {
@@ -16,19 +15,18 @@ var isAnagram = function(s, t) {
         return false
     }
     
+    
     let hashS = {}
     
     for(let i = 0 ; i < s.length; i++){
         hashS[s[i]] = hashS[s[i]] + 1 || 1
     }
-    console.log(hashS)
-    for(let letter of t){
-        if(!(hashS[letter])){
+    
+    for(let i = 0; i < t.length;i++){
+        if(!hashS[t[i]]){
             return false
-        }        
-        hashS[letter]--
+        }
+        hashS[t[i]]--
     }
     return true
-    
-    
 };
