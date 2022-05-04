@@ -9,18 +9,21 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+
+// given head of the list
+// reverse list, return that list
+
 var reverseList = function(head) {
-    
-    let prev=null
-    let next=null
+    let next =null
+    let prev =null
     
     while(head){
-        next = head.next
-        head.next = prev
-        prev = head
-        head = next
+        next = head.next  // 2
+        head.next = prev // null
+        prev = head   // 1     
+        head = next   // 2
     }
-    return prev
     
+    return prev
     
 };
