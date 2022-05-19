@@ -22,15 +22,15 @@ var isValid = function(s) {
     const stack =[]
     
     for(let char of s){
-        console.log(char)
+        
         if(hash[char]){
             stack.push(hash[char])
         }else{
             if( stack.pop() !== char ) return false
         }
     }
+    
   return !stack.length
     
 };
 
-// [][][]
