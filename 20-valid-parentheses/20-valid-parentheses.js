@@ -26,7 +26,7 @@ var isValid = function(s) {
         if(hash[char]){
             stack.push(hash[char])
         }else{
-            if( stack.pop() !== char ) return false
+            if( stack.pop() !== char  ) return false
         }
     }
     
