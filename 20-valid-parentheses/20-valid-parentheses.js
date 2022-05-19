@@ -29,7 +29,7 @@ var isValid = function(s) {
             if( stack.pop() !== char ) return false
         }
     }
-  return (!stack.length)
+  return !stack.length
     
 };
 
