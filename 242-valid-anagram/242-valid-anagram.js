@@ -4,26 +4,31 @@
  * @return {boolean}
  */
 
-// i:strings s and t
-// o:return true if t is an anagram
+// i:two strings s and t
+// O:return true if anagram
+// e:need to be same length
+
 
 var isAnagram = function(s, t) {
-    if(s.length !== t.length){
-        return false
-    }
-    const hashS = {}
+    if(s.length !== t.length) return false
     
-    for(let i = 0; i < s.length;i++){
-        hashS[s[i]] = hashS[s[i]] + 1 || 1
+    const sHash = {}
+    
+    for(let i = 0; i < s.length; i++){
+        sHash[s[i]] = sHash[s[i]] + 1 || 1   
         
     }
     
-   for(let letter of t){
-       if(hashS[letter]){
-           hashS[letter]--
-       }else{
-           return false
-       }
-   }
+    for(let letter of t){
+        if(sHash[letter]){
+            sHash[letter]--
+        }else{
+            return false
+        }
+    }
+
+    
+   
+    
     return true
 };
