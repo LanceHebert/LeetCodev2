@@ -2,35 +2,23 @@
  * @param {string} s
  * @return {boolean}
  */
-
-
-
-
-
-
-// i=string s
-// o= return if stringis valid w/ pairs
-// edgecase: odd number auto false
-
 var isValid = function(s) {
-        
     if(s.length % 2 !== 0){
         return false
     }
+    const hash ={'(': ')','{':'}','[':']'}
     
-    const hash = { "(":")","[":"]","{":"}"}
-    const stack =[]
+    stack = []
     
-    for(let char of s){
-        
-        if(hash[char]){
-            stack.push(hash[char])
-        }else{
-            if( stack.pop() !== char  ) return false
+    for(let i=0;i<s.length;i++){
+        if(s[i] in hash){
+          stack.push(hash[s[i]])  
         }
+        else {
+            if(stack.pop() !== s[i]){
+            return false
+            }    
+        }  
     }
-    
-  return !stack.length
-    
+    return !stack.length
 };
-
