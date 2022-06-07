@@ -12,7 +12,7 @@ var maxProfit = function(prices) {
    let buyDay = prices[0]
    let profit = 0
    
-   for(let i = 0; i < prices.length;i++){
+   for(let i = 1; i < prices.length;i++){
        if(buyDay > prices[i]){
           buyDay = prices[i]
        }
