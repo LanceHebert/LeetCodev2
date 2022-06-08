@@ -11,24 +11,23 @@
  * @return {TreeNode}
  */
 var invertTree = function(root) {
-          
+    
+    const node = root
+    
+    function helper(node)
+    {
+        if(node !== null){
+        let temp = node.left
+        node.left = node.right
+        node.right = temp
+        
+        helper(node.left)
+        helper(node.right)
+        }
+    }
+    helper(node)
     
     
-    
-     let stack = [root]
-     
-     while (stack.length > 0){         
-         let node = stack.pop()
-         
-         if(node !== null){
-             
-             let temp = node.left
-             node.left = node.right
-             node.right = temp             
-                          
-             stack.push(node.left)
-             stack.push(node.right)
-         }         
-     }
     return root
+    
 };
