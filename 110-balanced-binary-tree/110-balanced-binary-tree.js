@@ -12,25 +12,21 @@
  */
 var isBalanced = function(root) {
     
-    if(root === null){
-        return true
+    if(root === null) return true
+    
+    
+    function countHeight(node){
+        if(node === null) return 0
+      
+    let left =  countHeight(node.left)
+    let right = countHeight(node.right )
+        
+    if(left === -1 || right === -1 || Math.abs(left -right) > 1 )return -1
+    
+        return Math.max(left,right) + 1
     }
     
-    function dfs(node){
-        if(node === null){
-            return 0
-        }
-        
-       let left = dfs(node.left)
-       let right = dfs(node.right)
-            
-       if(left === -1 || right == -1 || Math.abs(left - right) > 1){
-           return -1
-       } 
-        return Math.max(left,right) + 1
-    }    
+    if(countHeight(root) === -1) return false
+    return true
     
-    
-    return dfs(root) !== -1
-       
 };
