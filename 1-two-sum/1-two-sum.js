@@ -3,27 +3,21 @@
  * @param {number} target
  * @return {number[]}
  */
-
-// I:array nums. int target
-// O:return indices that add up to target
-// E:
-
 var twoSum = function(nums, target) {
+   
+    let hash = {}
     
-    const hash = {}
-    
-    for(let i = 0 ; i < nums.length;i++){
+    for(let i =0;i<nums.length;i++){
+        let difference= target - nums[i]
         
-        
-        let diff = target - nums[i]
-        
-       if(diff in hash){
-           return [i,hash[diff]]
-       }else{
-           hash[nums[i]] =i
-       }
-        
+        if(difference in hash){
+            return [i,hash[difference]]
+        }
+        else{
+            hash[nums[i]] = i
+        }
     }
+    
     
     
 };
