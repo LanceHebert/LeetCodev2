@@ -3,25 +3,27 @@
  * @return {boolean}
  */
 
-
+// take string remove uppercase, and non alphanum with regex
+// create two pointers , one start one end, move closer to each other. must be equal
 
 
 var isPalindrome = function(s) {
+    if(s.length === 1){
+        return true
+    }
     
-    
-    let reg = s.replace(/\W|_/g,"")
-    let sReg = reg.toLowerCase()
-   
+    let regS = s.replace(/\W|_/g,"").toLowerCase()
     let left = 0
-    let right = sReg.length - 1
+    let right = regS.length - 1
     
     while(left < right){
-        if(sReg[left] !== sReg[right]){
-            return false
+        if(regS[left] !== regS[right]){
+          return false
         }
-        left++
-        right--
+          left++
+            right--
     }
+    
     return true
     
 };
