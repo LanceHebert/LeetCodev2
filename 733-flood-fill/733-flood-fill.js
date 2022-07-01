@@ -2,33 +2,33 @@
  * @param {number[][]} image
  * @param {number} sr
  * @param {number} sc
- * @param {number} newColor
+ * @param {number} color
  * @return {number[][]}
  */
-var floodFill = function(image, sr, sc, newColor) {
-    
-     if(image[sr][sc] === newColor || image ===null || image < 1 ){
-        return image
-    }
-    
-    const initColor = image[sr][sc]
+var floodFill = function(image, sr, sc, color) {
     
     
+    let initColor = image[sr][sc]
     
+    if(initColor === color) return image
     
-    function recursion(image,r,c,newColor,initColor){
-        if(r < 0 || r > image.length-1 || c < 0 || c > image[0].length || initColor != image[r][c]) {
-            return
+    function fill(image,r,c,color,initColor){
+        if(r < 0 || r > image.length - 1 || c < 0 || c > image[0].length - 1 || image[r][c] !== initColor){
+           return  
         }
-        image[r][c]=newColor
         
-        recursion(image,r -1,c,newColor,initColor)
-        recursion(image,r +1,c,newColor,initColor)
-        recursion(image,r,c-1,newColor,initColor)
-        recursion(image,r,c+1,newColor,initColor)
+        image[r][c] = color
         
+        fill(image,r + 1,c,color,initColor)
+        fill(image,r - 1,c,color,initColor)
+        fill(image,r,c + 1,color,initColor)
+        fill(image,r,c - 1,color,initColor)
+
     }
-    recursion(image,sr,sc,newColor,initColor)
+        fill(image,sr,sc,color,initColor)
+
+        
+        
+   return image 
     
-    return image
 };
