@@ -26,7 +26,7 @@ class MyQueue{
     }
     
     empty(){
-        if(this.pushStack.length === 0 && this.popStack.length === 0) return true
+        if(this.pushStack.length === 0) return true
         else return false
     }
     
