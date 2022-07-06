@@ -14,7 +14,11 @@ class MyQueue{
         while(this.pushStack.length){
             this.popStack.push(this.pushStack.pop())
         }
+        
+        
         let answer = this.popStack.pop()
+        
+        
         while(this.popStack.length){
             this.pushStack.push(this.popStack.pop())
         }
@@ -26,8 +30,8 @@ class MyQueue{
     }
     
     empty(){
-        if(this.pushStack.length === 0) return true
-        else return false
+        return this.pushStack.length === 0 
+       
     }
     
 }
