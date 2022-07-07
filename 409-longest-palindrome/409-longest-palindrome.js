@@ -16,7 +16,7 @@ var longestPalindrome = function(s) {
     
     console.log(sHash)    
     
-    //
+    //if its less than the lenght that means you can throw a extra letter in the middle of the word.
     if((counter*2) < s.length) return counter*2 +1
     else return counter*2
     
