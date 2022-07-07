@@ -17,7 +17,7 @@ var climbStairs = function(n) {
     
   let arr = [1,1]
     
-    for(let i = 1; i < n;i++){
+    for(let i = 2; i <= n;i++){
        const result = arr[0] + arr[1]
        arr[0] = arr[1]
         arr[1]= result
