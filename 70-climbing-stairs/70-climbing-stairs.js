@@ -13,13 +13,15 @@
 // next = i-1 + i-2
 
 var climbStairs = function(n) {
-    if(n <= 2)return n
     
-  let arr = [1,2]
     
-    for(let i = 2; i < n;i++){
-       arr.push(arr[i-2]+(arr[i-1]))        
+  let arr = [1,1]
+    
+    for(let i = 1; i < n;i++){
+       const result = arr[0] + arr[1]
+       arr[0] = arr[1]
+        arr[1]= result
     }
-    console.log(arr)
-    return arr[arr.length-1]
+    
+    return arr[1]
 };
