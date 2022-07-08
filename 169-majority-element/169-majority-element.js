@@ -4,8 +4,19 @@
  */
 var majorityElement = function(nums) {
     
-  nums.sort()
+    let numsHash = {}
+    let biggest =0
     
-  return nums[Math.floor(nums.length/2)]
+    for(let i = 0;i<nums.length;i++){
+        numsHash[nums[i]] = numsHash[nums[i]] + 1 || 1
+        
+        if(numsHash[nums[i]] > biggest){
+            biggest = numsHash[nums[i]]
+        }       
+    }
+    
+    for (const key in numsHash) {
+    if(numsHash[key] === biggest) return key
+}
     
 };
