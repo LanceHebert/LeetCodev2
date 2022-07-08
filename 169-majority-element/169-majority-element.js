@@ -6,6 +6,6 @@ var majorityElement = function(nums) {
     
   nums.sort()
     
-    return nums[Math.floor(nums.length/2)]
+  return nums[Math.floor(nums.length/2)]
     
 };
