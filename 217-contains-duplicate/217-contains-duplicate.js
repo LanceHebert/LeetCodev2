@@ -2,20 +2,14 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-
-// i:array nums , O:return bool , E:,
-
-
 var containsDuplicate = function(nums) {
     
-    const hash = {}
+    let numsHash ={}
     
-    for(let i = 0 ; i < nums.length; i++){
-        hash[nums[i]] = hash[nums[i]] + 1 || 1
+    for(num of nums){
+        numsHash[num] = numsHash[num] +1 || 1
         
-        if(hash[nums[i]] > 1){
-            return true
-        }
+        if(numsHash[num] > 1) return true
     }
     return false
     
