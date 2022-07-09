@@ -10,20 +10,13 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    let length = 0
-    let mid =0
-    let list = []
-    
-    while(head){
-       length++
-        list.push(head)
-        head=head.next  
-        if(length % 2===0) mid = length/2 +1
-        else mid = Math.ceil(length/2)
-        
-    }
-    return list[mid-1]
-    
-    
+  let fast = head
+  let slow = head
+  
+  while(fast && fast.next){
+     fast = fast.next.next
+    slow = slow.next
+  }
+    return slow
     
 };
