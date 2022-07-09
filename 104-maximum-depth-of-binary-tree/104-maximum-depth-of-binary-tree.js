@@ -11,22 +11,17 @@
  * @return {number}
  */
 var maxDepth = function(root) {
+    if(!root)return null
     
-    let maxDepth = 0
-    
-    let dfs = (node,level) => {
-        if(node === null)return
-        if(maxDepth < level) maxDepth = level
-        if(node.left) dfs(node.left,level + 1)
-        if(node.right) dfs(node.right,level + 1)
-               
+    function dfs(root){
+        if(!root) return 0
+        
+        let left = dfs(root.left)
+        let right = dfs(root.right)
+        
+        return Math.max(left,right) + 1
     }
-  dfs(root,1)
+    return dfs(root)
     
- return maxDepth   
-}
-
-//      0
-// 2             4
-// 1 null       3 -1
-// 5,1      null 6  null 8
+    
+};
