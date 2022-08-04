@@ -36,7 +36,7 @@
 
 var mergeTwoLists = function(list1, list2) {
     
-    const resultList = new ListNode(-Infinity)
+    const resultList = new ListNode(null)
     let node = resultList
     
   
@@ -57,7 +57,6 @@ var mergeTwoLists = function(list1, list2) {
                list2 =list2.next
            }
         }
-
 
     if(!list1) {
         node.next = list2
