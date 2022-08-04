@@ -10,9 +10,29 @@
  * @param {ListNode} list2
  * @return {ListNode}
  */
-
-// iterate the total length of l1+l2, choose one to start, and then move pointer to next, recheck if less or greater than, repeat process until next = null, if one list is null .next is the rest of the other list
-
+// var mergeTwoLists = function(list1, list2) {
+    
+//     let list3 = new ListNode(null)
+    
+//     while(list1 && list2){
+//         if(list1.val <= list2.val){
+//             list3.next = list1
+//             list3 = list1
+//             list1 = list1.next
+//         }else{
+//             list3.next = list2
+//             list3 = list2
+//             list2 = list2.next
+//         }
+//     }
+    
+//     if(!list1) list3.next = list2
+//     if(!list2) list3.next = list1
+    
+//     return list3.next
+    
+    
+// };
 
 var mergeTwoLists = function(list1, list2) {
     
@@ -39,16 +59,14 @@ var mergeTwoLists = function(list1, list2) {
         }
 
 
-    if(list1 === null) {
+    if(!list1) {
         node.next = list2
     }
-    if(list2 === null) {
+    if(!list2 ) {
          node.next = list1
     }
     
     
     return resultList.next
-    
-    
     
 }
