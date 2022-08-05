@@ -2,26 +2,22 @@
  * @param {number[]} prices
  * @return {number}
  */
-
-// buy day gets checked vs following iterated days,if buy day is greater replace
-// if current day - buy day is greater than max profit increase max profit
-
-
 var maxProfit = function(prices) {
     
-    let buyDay = prices[0]
-    let maxProfit = 0
+    let maxProf = 0
+    let buyday = prices[0]
     
-    for(let i=0;i < prices.length;i++){
-        if(buyDay > prices[i]){
-            buyDay = prices[i]
+    
+    for(let i = 0 ;  i<prices.length;i++){
+        if(buyday > prices[i]){
+            buyday = prices[i]
         }
         
-        if(prices[i]-buyDay > maxProfit){
-            maxProfit = prices[i]-buyDay
-        }
+    if(prices[i]-buyday > maxProf){
+       maxProf = prices[i]-buyday
+    }
         
     }
-    return maxProfit
+    return maxProf
     
 };
