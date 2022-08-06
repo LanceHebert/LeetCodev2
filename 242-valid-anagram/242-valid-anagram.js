@@ -5,21 +5,19 @@
  */
 var isAnagram = function(s, t) {
     if(s.length !== t.length) return false
-    let hash = {}
+    
+    let sHash = {}
+    
+    for(let i = 0 ; i < s.length;i++){
+        sHash[s[i]] = sHash[s[i]] + 1 || 1        
+    }
    
-    for(let i = 0;i < s.length;i++){
-        hash[s[i]] = hash[s[i]] + 1 || 1
-               
-    }
     
-     for(let i = 0;i < s.length;i++){
-        if(!hash[t[i]]){
-            return false
-        }else{
-            hash[t[i]]--
-        }
-               
+    for(const letter of t){
+        
+        if(sHash[letter]) sHash[letter]--
+        else return false
     }
-    
     return true
+    
 };
