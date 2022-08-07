@@ -18,18 +18,22 @@ var solution = function(isBadVersion) {
      * @return {integer} The first bad version
      */
     return function(n) {
-       let start =0
-       let end = n
-       let mid = Math.floor((start + end) / 2)
-       // 1 2 3s 4x 5
-       while(start < end){
-           if(isBadVersion(mid) === true){
-               end = mid 
-           }else{
-               start = mid + 1
-           }
-           mid=Math.floor((start + end) / 2)
-       }
-       return end
-    };
+        let start = 0
+        let end = n
+        let mid = Math.floor((start + end) / 2)
+        
+      console.log(start,end,mid)
+        while(start < end){
+            
+            if(isBadVersion(mid) === false){
+                start = mid + 1
+                if(isBadVersion(start) === true) return (start)
+            }else{
+                end = mid - 1 
+                if(isBadVersion(end) === false) return (end + 1)
+            }
+           mid=Math.floor((start + end) / 2)            
+        }
+        
+    }   
 };
