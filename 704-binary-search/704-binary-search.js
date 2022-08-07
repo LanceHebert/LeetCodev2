@@ -11,7 +11,7 @@
 var search = function(nums, target) {
     
     let start = 0
-    let end = nums.length - 1
+    let end = nums.length
     let mid = Math.floor((start + end) / 2)
     
     while(start < end && nums[mid] !== target){
