@@ -3,24 +3,23 @@
  * @param {string} magazine
  * @return {boolean}
  */
+
+
+// make a hash store letters from magazine, iterate and minus those from ransomnote
+
 var canConstruct = function(ransomNote, magazine) {
     
-    if(ransomNote.length > magazine.length) return false
+    let magHash = {}
     
     
-    const mHash ={}
-    
-    for(let i = 0 ; i < magazine.length;i++){
-        mHash[magazine[i]] = mHash[magazine[i]] + 1 || 1
-        
+    for(let i = 0 ; i < magazine.length ; i++){
+        magHash[magazine[i]] = magHash[magazine[i]] + 1 || 1
     }
+    console.log(magHash)
     
-    for(let i=0;i < ransomNote.length;i++){
-        if(!mHash[ransomNote[i]]){
-            return false
-        }else{
-            mHash[ransomNote[i]]--
-        }
+    for(let i = 0 ; i < ransomNote.length ; i++){
+        if(magHash[ransomNote[i]]) magHash[ransomNote[i]]--
+        else return false
     }
     return true
 };
