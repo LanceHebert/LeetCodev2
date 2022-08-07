@@ -2,22 +2,27 @@
  * @param {string} s
  * @return {number}
  */
+
+// put everything in a hash,check if there are 2 in there and increase a counter
+
+
 var longestPalindrome = function(s) {
-    if(s.length === 1) return 1
-    let sHash ={}
-    let counter = 0
+   
+    let palHash = {}
+    let length = 0
     
-    for(let i = 0;i<s.length;i++){
-        //build hash
-        sHash[s[i]] = 1 + sHash[s[i]] || 1  
-        //check to see if even number, increase counter if so
-        if(sHash[s[i]] % 2 === 0) counter++ 
+    for(let i =0; i < s.length;i++){
+        palHash[s[i]] = palHash[s[i]] + 1 || 1
+        
+        if(palHash[s[i]] % 2 === 0){
+            length += 2
+        }
     }
     
-    console.log(sHash)    
+    if(s.length > length){
+        return length + 1
+    }else{
+        return length
+    }
     
-    //if its less than the lenght that means you can throw a extra letter in the middle of the word.
-    if((counter*2) < s.length) return counter*2 +1
-    else return counter*2
-    
-};   
+};
