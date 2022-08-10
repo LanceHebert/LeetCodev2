@@ -2,21 +2,28 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+
+
+
 var majorityElement = function(nums) {
     
     let numsHash = {}
-    let biggest =0
+    let answer=0
+    let result = 0
     
-    for(let i = 0;i<nums.length;i++){
-        numsHash[nums[i]] = numsHash[nums[i]] + 1 || 1
+    for(const number of nums){
+        numsHash[number] ? numsHash[number]++ : numsHash[number]=1
         
-        if(numsHash[nums[i]] > biggest){
-            biggest = numsHash[nums[i]]
-        }       
+        if(numsHash[number] > answer ) answer = numsHash[number]       
     }
-    
-    for (const key in numsHash) {
-    if(numsHash[key] === biggest) return key
-}
+    for (let key in numsHash)
+    {
+        if (numsHash[key] === answer) 
+        {
+            return  key
+        }
+    }
+
     
 };
