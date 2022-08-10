@@ -9,7 +9,7 @@
 var majorityElement = function(nums) {
     
     let numsHash = {}
-    let answer=0
+   
     
     
     for(const number of nums){
