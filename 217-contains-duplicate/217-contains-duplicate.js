@@ -5,15 +5,11 @@
 var containsDuplicate = function(nums) {
     
     let numsHash = {}
+    let bool = false
     
     for(const number of nums){
-        numsHash[number] ? numsHash[number]++ : numsHash[number] = 1  
-        
-        if(numsHash[number] > 1) return true
-    }
-    
-    return false
-    
-    
-    
+        numsHash[number] ? bool=true : numsHash[number] = 1        
+       
+    }    
+    return bool  
 };
