@@ -4,13 +4,16 @@
  */
 var containsDuplicate = function(nums) {
     
-    let numsHash ={}
+    let numsHash = {}
     
-    for(num of nums){
-        numsHash[num] = numsHash[num] +1 || 1
+    for(const number of nums){
+        numsHash[number] ? numsHash[number]++ : numsHash[number] = 1  
         
-        if(numsHash[num] > 1) return true
+        if(numsHash[number] > 1) return true
     }
+    
     return false
+    
+    
     
 };
